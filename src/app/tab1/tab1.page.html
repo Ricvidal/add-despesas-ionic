@@ -9,59 +9,38 @@
     <ion-list>
       <ion-item>
         <ion-label position="floating">Motivo</ion-label>
-        <ion-input
-          name="motivo"
-          type="text"
-          [(ngModel)]="despesa.motivo"
-          required
-          #motivo="ngModel"
-        ></ion-input>
+        <ion-input name="motivo" type="text" [(ngModel)]="despesa.motivo" required #motivo="ngModel"></ion-input>
         <div *ngIf="motivo.invalid && motivo.touched">
           <ion-text color="danger">Motivo da despesa! </ion-text>
         </div>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Valor</ion-label>
-        <ion-input
-          name="valor"
-          type="number"
-          [(ngModel)]="despesa.valor"
-          required
-        ></ion-input>
+        <ion-input name="valor" type="number" [(ngModel)]="despesa.valor" required></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Tipo</ion-label>
-        <ion-select
-          name="tipo"
-          okText="OK"
-          cancelText="Cancelar"
-          [(ngModel)]="despesa.tipo"
-          required
-        >
-          <ion-select-option *ngFor="let tp of tipo" [value]="tp"
-            >{{tp}}</ion-select-option
-          >
+        <ion-select name="tipo" okText="OK" cancelText="Cancelar" [(ngModel)]="despesa.tipo" required>
+          <ion-select-option *ngFor="let tp of tipo" [value]="tp">{{tp}}</ion-select-option>
         </ion-select>
       </ion-item>
+
+      <ion-item>
+        <ion-label>Regime</ion-label>
+        <ion-select name="regime" okText="OK" cancelText="Cancelar" [(ngModel)]="despesa.regime" required>
+        <ion-select-option *ngFor="let reg of regime" [value]="reg">{{reg}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
       <ion-item>
         <ion-label>Data</ion-label>
-        <ion-datetime
-          name="data"
-          displayFormat="DD/MMM/YYYY"
-          min="2021"
-          max="2100"
-          [(ngModel)]="despesa.data"
-          required
-        ></ion-datetime>
+        <ion-datetime name="data" displayFormat="DD/MMM/YYYY" min="2021" max="2100" [(ngModel)]="despesa.data" required>
+        </ion-datetime>
       </ion-item>
     </ion-list>
 
     <ion-fab vertical="center" horizontal="start" slot="fixed">
-      <ion-fab-button
-        color="primary"
-        (click)="adicionar()"
-        [disabled]="formDesp.invalid"
-      >
+      <ion-fab-button color="primary" (click)="adicionar()" [disabled]="formDesp.invalid">
         <ion-icon name="add"></ion-icon>
       </ion-fab-button>
     </ion-fab>

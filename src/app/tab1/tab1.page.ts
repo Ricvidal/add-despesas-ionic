@@ -1,5 +1,7 @@
+import { TipoRegime } from './../model/despesa';
 import { Component } from '@angular/core';
 import { Despesa, TipoDespesa } from '../model/despesa';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-tab1',
@@ -8,14 +10,17 @@ import { Despesa, TipoDespesa } from '../model/despesa';
 })
 export class Tab1Page {
   tipo: string[];
+  regime: string[];
   despesa: Despesa;
 
   constructor() {
     this.tipo = Object.values(TipoDespesa);
+    this.regime = Object.values(TipoRegime);
     this.despesa = new Despesa(
       '',
       null,
       TipoDespesa.OUTRA,
+      TipoRegime.ESCOLHER,
       new Date().toISOString()
     );
   }
@@ -28,6 +33,7 @@ export class Tab1Page {
     this.despesa.motivo = '';
     this.despesa.valor = null;
     this.despesa.tipo = TipoDespesa.OUTRA;
+    this.despesa.regime = TipoRegime.ESCOLHER;
     this.despesa.data = new Date().toISOString();
   }
 }
