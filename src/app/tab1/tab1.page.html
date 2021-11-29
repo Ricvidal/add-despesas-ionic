@@ -1,17 +1,81 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+<ion-header>
+  <ion-toolbar color="tertiary" class="ion-text-center">
+    <ion-title> Nova Despesa </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <form #formDesp="ngForm">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Motivo</ion-label>
+        <ion-input
+          name="motivo"
+          type="text"
+          [(ngModel)]="despesa.motivo"
+          required
+          #motivo="ngModel"
+        ></ion-input>
+        <div *ngIf="motivo.invalid && motivo.touched">
+          <ion-text color="danger">Motivo da despesa! </ion-text>
+        </div>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Valor</ion-label>
+        <ion-input
+          name="valor"
+          type="number"
+          [(ngModel)]="despesa.valor"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Tipo</ion-label>
+        <ion-select
+          name="tipo"
+          okText="OK"
+          cancelText="Cancelar"
+          [(ngModel)]="despesa.tipo"
+          required
+        >
+          <ion-select-option *ngFor="let tp of tipo" [value]="tp"
+            >{{tp}}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Data</ion-label>
+        <ion-datetime
+          name="data"
+          displayFormat="DD/MMM/YYYY"
+          min="2021"
+          max="2100"
+          [(ngModel)]="despesa.data"
+          required
+        ></ion-datetime>
+      </ion-item>
+    </ion-list>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    <ion-fab vertical="center" horizontal="start" slot="fixed">
+      <ion-fab-button
+        color="primary"
+        (click)="adicionar()"
+        [disabled]="formDesp.invalid"
+      >
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-fab vertical="center" horizontal="center" slot="fixed">
+      <ion-fab-button color="light">
+        <ion-icon name="eye"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-fab vertical="center" horizontal="end" slot="fixed">
+      <ion-fab-button color="warning" (click)="limpar()">
+        <ion-icon name="close"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </form>
 </ion-content>
