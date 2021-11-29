@@ -1,0 +1,7 @@
+{
+  "name": "app-despesas-v3",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
