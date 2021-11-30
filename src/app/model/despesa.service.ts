@@ -20,11 +20,11 @@ export class DespesaService {
       console.log(this.despesas);
       return true;
     }
-
     return false;
   }
 
   obterTodas(): Despesa[] {
+    // console.log(this.despesas);
     return this.despesas;
   }
 }
