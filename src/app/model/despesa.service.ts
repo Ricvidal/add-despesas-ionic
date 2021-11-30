@@ -4,7 +4,10 @@ import { Despesa } from './despesa';
 @Injectable({
   providedIn: 'root',
 })
+
+
 export class DespesaService {
+  
   private despesas: Despesa[];
   constructor() {
     this.despesas = [];
@@ -15,15 +18,20 @@ export class DespesaService {
    *  @return false: despesa não adicionada
    */
   // adicionarNova(desp: Despesa): boolean {
-    // if (desp != null && !this.despesas.includes(desp)) {
-    //   this.despesas.push(desp);
-    //   console.log(this.despesas);
-    //   return true;
-    // }
-    // return false;
-    adicionarNova(desp: Despesa): Despesa[] {
+  // if (desp != null && !this.despesas.includes(desp)) {
+  //   this.despesas.push(desp);
+  //   console.log(this.despesas);
+  //   return true;
+  // }
+  // return false;
+  adicionarNova(desp: Despesa): boolean {
+    
+    if (desp != null && !this.despesas.includes(desp)) {
       this.despesas.push(desp);
-      return this.despesas;
+
+      return true;
+    }
+      return false;
   }
 
   obterTodas(): Despesa[] {
