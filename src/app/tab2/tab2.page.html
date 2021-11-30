@@ -5,13 +5,20 @@
 </ion-header>
 
 <ion-content>
-  <ion-row *ngFor="let d of this.ds.obterTodas()">
-    <ion-col>
-      <ion-item>
-        <ion-icon name="pin" slot="start"></ion-icon>
-        <ion-label>{{d.nome}}</ion-label>
-        <ion-button fill="outline" slot="end">View</ion-button>
-      </ion-item>
-    </ion-col>
-  </ion-row>
+  <ion-grid>
+    <ion-row *ngFor="let d of this.ds.obterTodas()">
+      <!-- <ion-row *ngFor="let d of Despesas"> -->
+      <ion-col>
+        <ion-item>
+          <ion-icon name="pin" slot="start"></ion-icon>
+          <ion-label>{{d.motivo}}</ion-label>
+          <ion-icon name="pin" slot="start"></ion-icon>
+          <ion-label>{{d.valor}}</ion-label>
+          <ion-icon name="pin" slot="start"></ion-icon>
+          <ion-label>{{d.data | date: 'dd/MM/yyyy'}}</ion-label>
+          <ion-button fill="outline" slot="end">View</ion-button>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

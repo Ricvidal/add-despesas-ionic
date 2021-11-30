@@ -1,7 +1,8 @@
 import { TipoRegime } from './../model/despesa';
 import { Component } from '@angular/core';
 import { Despesa, TipoDespesa } from '../model/despesa';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { DespesaService } from '../model/despesa.service';
+
 
 @Component({
   selector: 'app-tab1',
@@ -13,7 +14,7 @@ export class Tab1Page {
   regime: string[];
   despesa: Despesa;
 
-  constructor() {
+  constructor(private ds: DespesaService) {
     this.tipo = Object.values(TipoDespesa);
     this.regime = Object.values(TipoRegime);
     this.despesa = new Despesa(
@@ -27,6 +28,7 @@ export class Tab1Page {
 
   adicionar() {
     console.log(this.despesa);
+    this.ds.adicionarNova(this.despesa);
   }
 
   limpar() {
