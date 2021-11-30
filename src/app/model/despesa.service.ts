@@ -14,13 +14,16 @@ export class DespesaService {
    *  @return true: despesa adicionada
    *  @return false: despesa não adicionada
    */
-  adicionarNova(desp: Despesa): boolean {
-    if (desp != null && !this.despesas.includes(desp)) {
+  // adicionarNova(desp: Despesa): boolean {
+    // if (desp != null && !this.despesas.includes(desp)) {
+    //   this.despesas.push(desp);
+    //   console.log(this.despesas);
+    //   return true;
+    // }
+    // return false;
+    adicionarNova(desp: Despesa): Despesa[] {
       this.despesas.push(desp);
-      console.log(this.despesas);
-      return true;
-    }
-    return false;
+      return this.despesas;
   }
 
   obterTodas(): Despesa[] {

@@ -27,7 +27,7 @@ export class Tab1Page {
   }
 
   adicionar() {
-    console.log(this.despesa);
+    // console.log(this.despesa);
     this.ds.adicionarNova(this.despesa);
   }
 
