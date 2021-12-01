@@ -31,7 +31,7 @@
       <ion-item>
         <ion-label>Regime</ion-label>
         <ion-select name="regime" okText="OK" cancelText="Cancelar" [(ngModel)]="despesa.regime" required>
-        <ion-select-option *ngFor="let reg of regime" [value]="reg">{{reg}}</ion-select-option>
+          <ion-select-option *ngFor="let reg of regime" [value]="reg">{{reg}}</ion-select-option>
         </ion-select>
       </ion-item>
 
@@ -60,11 +60,11 @@
       </ion-fab-button>
     </ion-fab>
   </form>
- 
+
 </ion-content>
-<ion-item *ngIf="adicionado">
-  <ion-card>
-    <ion-card-header color="warning">
+<ion-item *ngIf="adicionado" (click)="ok()">
+  <ion-card color="warning">
+    <ion-card-header>
       <ion-card-title>Despesa adicionada com sucesso!</ion-card-title>
     </ion-card-header>
   </ion-card>

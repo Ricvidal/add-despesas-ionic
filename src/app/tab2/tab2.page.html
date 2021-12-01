@@ -9,12 +9,20 @@
     <ion-row>
       <!-- <ion-row *ngFor="let d of Despesas"> -->
       <ion-col>
-        <ion-item>  
-          <ion-label><ion-icon name="heart-half-outline"></ion-icon>{{d.motivo}}</ion-label>
-          <ion-label><ion-icon name="cash-outline"></ion-icon> R${{d.valor}}</ion-label>
-          <ion-label> <ion-icon name="list-circle-outline"></ion-icon> {{d.tipo}}</ion-label>
-          <ion-label> <ion-icon name="trail-sign-outline"></ion-icon> {{d.regime}}</ion-label>
-          <ion-label><ion-icon name="calendar-number-outline"></ion-icon> {{d.data | date: 'dd/MM/yyyy'}}</ion-label>
+        <ion-item> 
+          <ion-icon name="bus-outline" *ngIf="d.tipo.includes('Transporte')" slot="start"></ion-icon>
+          <ion-icon name="basketball-outline" *ngIf="d.tipo.includes('Esporte')" slot="start"></ion-icon>
+          <ion-icon name="fitness-outline" *ngIf="d.tipo.includes('Saúde')" slot="start"></ion-icon> 
+          <ion-icon name="school-outline" *ngIf="d.tipo.includes('Educação')" slot="start"></ion-icon>
+          <ion-icon name="game-controller-outline" *ngIf="d.tipo.includes('Lazer')" slot="start"></ion-icon>
+          <ion-icon name="home-outline" *ngIf="d.tipo.includes('Lar')" slot="start"></ion-icon>
+          <ion-icon name="fast-food-outline" *ngIf="d.tipo.includes('Alimentação')" slot="start"></ion-icon>
+          <ion-icon name="cart-outline" *ngIf="d.tipo.includes('Mercado')" slot="start"></ion-icon> 
+          <ion-label>{{d.motivo}}</ion-label>
+          <ion-label> R${{d.valor}}</ion-label>
+          <ion-label> {{d.tipo}}</ion-label>
+          <ion-label> {{d.regime}}</ion-label>
+          <ion-label> {{d.data | date: 'dd/MM/yyyy'}}</ion-label>
           <ion-button fill="outline" slot="end">Detalhe</ion-button>
         </ion-item>
       </ion-col>
