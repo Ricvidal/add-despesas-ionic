@@ -29,7 +29,6 @@ export class Tab1Page {
 
   adicionar() {
     // console.log(this.despesa);
-    this.adicionado = false;
     let desp = new Despesa(this.despesa.motivo, this.despesa.valor, this.despesa.tipo, this.despesa.regime, this.despesa.data);
     this.adicionado = this.ds.adicionarNova(desp);
 
