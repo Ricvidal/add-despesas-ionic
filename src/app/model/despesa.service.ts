@@ -20,7 +20,8 @@ export class DespesaService {
   adicionarNova(desp: Despesa): boolean {
     console.log('desp.Motivo: '+desp.motivo, 'desp.valor: '+desp.valor);
     
-    let naoDuplicado = this.despesas.filter(d => d.motivo == desp.motivo && d.valor == desp.valor)
+    let naoDuplicado = this.despesas.filter(d => d.motivo == desp.motivo && d.valor == desp.valor 
+      && d.tipo == desp.tipo && d.regime == desp.regime && d.data == desp.data )
     console.log(naoDuplicado);
     if (naoDuplicado.length == 0) {
       this.despesas.push(desp);
